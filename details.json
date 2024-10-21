@@ -1,0 +1,271 @@
+{
+  "bikes": [
+    {
+      "id": "harleydavidsonx",
+      "name": "Harley-Davidson X™ 440",
+      "price": "$20,000",
+      "info": "The Harley-Davidson X™ 440 combines modern technology with classic design. Experience unparalleled comfort and performance.",
+      "features": {
+        "engine": "Revolution Max 2500",
+        "power": "50 hp",
+        "torque": "50 Nm"
+      },
+      "images": {
+        "360": [
+          "./images/360/harleydavidsonx_0.png",
+          "./images/360/harleydavidsonx_15.png",
+          "./images/360/harleydavidsonx_30.png",
+          "./images/360/harleydavidsonx_45.png",
+          "./images/360/harleydavidsonx_60.png",
+          "./images/360/harleydavidsonx_75.png",
+          "./images/360/harleydavidsonx_90.png",
+          "./images/360/harleydavidsonx_105.png",
+          "./images/360/harleydavidsonx_120.png",
+          "./images/360/harleydavidsonx_135.png",
+          "./images/360/harleydavidsonx_150.png",
+          "./images/360/harleydavidsonx_165.png",
+          "./images/360/harleydavidsonx_180.png",
+          "./images/360/harleydavidsonx_195.png",
+          "./images/360/harleydavidsonx_210.png",
+          "./images/360/harleydavidsonx_225.png",
+          "./images/360/harleydavidsonx_240.png",
+          "./images/360/harleydavidsonx_250.png"
+          
+        ]
+      }
+    },
+    {
+      "id": "nightster",
+      "name": "Nightster",
+      "price": "$25,000",
+      "info": "The Nightster is a classic with modern features and a powerful engine.",
+      "features": {
+        "engine": "Revolution Max 975",
+        "power": "90 hp",
+        "torque": "70 Nm"
+      },
+      "images": {
+        "360": [
+          "./images/360/nightster_0.png",
+          "./images/360/nightster_15.png",
+          "./images/360/nightster_30.png",
+          "./images/360/nightster_45.png",
+          "./images/360/nightster_60.png",
+          "./images/360/nightster_75.png",
+          "./images/360/nightster_90.png",
+          "./images/360/nightster_105.png",
+          "./images/360/nightster_120.png",
+          "./images/360/nightster_135.png",
+          "./images/360/nightster_150.png",
+          "./images/360/nightster_165.png",
+          "./images/360/nightster_180.png",
+          "./images/360/nightster_195.png",
+          "./images/360/nightster_210.png",
+          "./images/360/nightster_225.png",
+          "./images/360/nightster_240.png",
+          "./images/360/nightster_250.png"
+        ]
+      }
+    },
+    {
+      "id": "panamerica",
+      "name": "Pan America",
+      "price": "$18,999",
+      "info": "The Pan America is built for adventure with rugged capability.",
+      "features": {
+        "engine": "Revolution Max 1250",
+        "power": "150 hp",
+        "torque": "127 Nm"
+      },
+      "images": {
+        "360": [
+          "./images/360/panamerica_0.png",
+          "./images/360/panamerica_15.png",
+          "./images/360/panamerica_30.png",
+          "./images/360/panamerica_45.png",
+          "./images/360/panamerica_60.png",
+          "./images/360/panamerica_75.png",
+          "./images/360/panamerica_90.png",
+          "./images/360/panamerica_105.png",
+          "./images/360/panamerica_120.png",
+          "./images/360/panamerica_135.png",
+          "./images/360/panamerica_150.png",
+          "./images/360/panamerica_165.png",
+          "./images/360/panamerica_180.png",
+          "./images/360/panamerica_195.png",
+          "./images/360/panamerica_210.png",
+          "./images/360/panamerica_225.png",
+          "./images/360/panamerica_240.png",
+          "./images/360/panamerica_250.png"
+        ]
+      }
+    },
+    {
+      "id": "sportster",
+      "name": "Sportster S",
+      "price": "$19,999",
+      "info": "The Sportster S offers modern performance with a classic look.",
+      "features": {
+        "engine": "Revolution Max 1250",
+        "power": "120 hp",
+        "torque": "95 Nm"
+      },
+      "images": {
+        "360": [
+          "./images/360/sportster_0.png",
+          "./images/360/sportster_15.png",
+          "./images/360/sportster_30.png",
+          "./images/360/sportster_45.png",
+          "./images/360/sportster_60.png",
+          "./images/360/sportster_75.png",
+          "./images/360/sportster_90.png",
+          "./images/360/sportster_105.png",
+          "./images/360/sportster_120.png",
+          "./images/360/sportster_135.png",
+          "./images/360/sportster_150.png",
+          "./images/360/sportster_165.png",
+          "./images/360/sportster_180.png",
+          "./images/360/sportster_195.png",
+          "./images/360/sportster_210.png",
+          "./images/360/sportster_225.png",
+          "./images/360/sportster_240.png",
+          "./images/360/sportster_250.png"
+        ]
+      }
+    },
+    {
+      "id": "fatbob",
+      "name": "2024 Fat Bob 114",
+      "price": "$20,499",
+      "info": "The Fat Bob delivers a confident ride with a bold look.",
+      "features": {
+        "engine": "Revolution Max 114",
+        "power": "100 hp",
+        "torque": "85 Nm"
+      },
+      "images": {
+        "360": [
+          "./images/360/fatbob_0.png",
+          "./images/360/fatbob_15.png",
+          "./images/360/fatbob_30.png",
+          "./images/360/fatbob_45.png",
+          "./images/360/fatbob_60.png",
+          "./images/360/fatbob_75.png",
+          "./images/360/fatbob_90.png",
+          "./images/360/fatbob_105.png",
+          "./images/360/fatbob_120.png",
+          "./images/360/fatbob_135.png",
+          "./images/360/fatbob_150.png",
+          "./images/360/fatbob_165.png",
+          "./images/360/fatbob_180.png",
+          "./images/360/fatbob_195.png",
+          "./images/360/fatbob_210.png",
+          "./images/360/fatbob_225.png",
+          "./images/360/fatbob_240.png",
+          "./images/360/fatbob_250.png"
+        ]
+      }
+    },
+    {
+      "id": "heritageclassic",
+      "name": "2024 Heritage Classic 114",
+      "price": "$21,999",
+      "info": "The Heritage Classic combines classic styling with modern technology.",
+      "features": {
+        "engine": "Revolution Max 114",
+        "power": "90 hp",
+        "torque": "75 Nm"
+      },
+      "images": {
+        "360": [
+          "./images/360/heritageclassic_0.png",
+          "./images/360/heritageclassic_15.png",
+          "./images/360/heritageclassic_30.png",
+          "./images/360/heritageclassic_45.png",
+          "./images/360/heritageclassic_60.png",
+          "./images/360/heritageclassic_75.png",
+          "./images/360/heritageclassic_90.png",
+          "./images/360/heritageclassic_105.png",
+          "./images/360/heritageclassic_120.png",
+          "./images/360/heritageclassic_135.png",
+          "./images/360/heritageclassic_150.png",
+          "./images/360/heritageclassic_165.png",
+          "./images/360/heritageclassic_180.png",
+          "./images/360/heritageclassic_195.png",
+          "./images/360/heritageclassic_210.png",
+          "./images/360/heritageclassic_225.png",
+          "./images/360/heritageclassic_240.png",
+          "./images/360/heritageclassic_250.png"
+        ]
+      }
+    },
+    {
+      "id": "streetglide",
+      "name": "2024 Street Glide",
+      "price": "$23,999",
+      "info": "The Street Glide is designed for long-distance cruising with comfort and style.",
+      "features": {
+        "engine": "Revolution Max 114",
+        "power": "100 hp",
+        "torque": "85 Nm"
+      },
+      "images": {
+        "360": [
+          "./images/360/streetglide_0.png",
+          "./images/360/streetglide_15.png",
+          "./images/360/streetglide_30.png",
+          "./images/360/streetglide_45.png",
+          "./images/360/streetglide_60.png",
+          "./images/360/streetglide_75.png",
+          "./images/360/streetglide_90.png",
+          "./images/360/streetglide_105.png",
+          "./images/360/streetglide_120.png",
+          "./images/360/streetglide_135.png",
+          "./images/360/streetglide_150.png",
+          "./images/360/streetglide_165.png",
+          "./images/360/streetglide_180.png",
+          "./images/360/streetglide_195.png",
+          "./images/360/streetglide_210.png",
+          "./images/360/streetglide_225.png",
+          "./images/360/streetglide_240.png",
+          "./images/360/streetglide_250.png"
+        ]
+      }
+    },
+    {
+      "id": "2023heritageclassic",
+      "name": "2023 Heritage Classic",
+      "price": "$22,999",
+      "info": "A tribute to the heritage of Harley-Davidson with a modern twist.",
+      "features": {
+        "engine": "Revolution Max 114",
+        "power": "95 hp",
+        "torque": "80 Nm",
+        "torsque": "80 Nm",
+        "myname":"adventure"
+      },
+      "images": {
+        "360": [
+          "./images/360/2023heritageclassic_0.png",
+          "./images/360/2023heritageclassic_15.png",
+          "./images/360/2023heritageclassic_30.png",
+          "./images/360/2023heritageclassic_45.png",
+          "./images/360/2023heritageclassic_60.png",
+          "./images/360/2023heritageclassic_75.png",
+          "./images/360/2023heritageclassic_90.png",
+          "./images/360/2023heritageclassic_105.png",
+          "./images/360/2023heritageclassic_120.png",
+          "./images/360/2023heritageclassic_135.png",
+          "./images/360/2023heritageclassic_150.png",
+          "./images/360/2023heritageclassic_165.png",
+          "./images/360/2023heritageclassic_180.png",
+          "./images/360/2023heritageclassic_195.png",
+          "./images/360/2023heritageclassic_210.png",
+          "./images/360/2023heritageclassic_225.png",
+          "./images/360/2023heritageclassic_240.png",
+          "./images/360/2023heritageclassic_250.png"
+        ]
+      }
+    }
+  ]
+}

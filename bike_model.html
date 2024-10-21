@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harley Davidson Models</title>
+    <link rel="stylesheet" href="bike_model.css">
+    <link rel="stylesheet" href="col.css">
+    <link rel="stylesheet" href="bike.css">
+    <script src="./bike_model.js" defer></script>
+    <style>
+        .view-button {
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #696765, #010101); /* Gradient background */
+    color: white;
+    border: none;
+    border-radius: 30px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    transition: all 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.view-button:hover {
+    background: linear-gradient(90deg, #393940, #494948); /* Reverse gradient on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+}
+    </style>
+</head>
+<body>  
+    <!-- Navbar -->
+    <nav>
+        <a href="#" class="logo">
+            <img src="./images/Harley_davidson_logo-removebg-preview.png" alt="Harley Davidson Logo" style="height: 100px;">
+        </a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="testride.html">Book Online</a></li>
+            <li><a href="bike_model.html">Model</a></li>
+            <li><a href="review.html">Review</a></li>
+            <li><a href="location.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content for bike models -->
+    <div class="bike-models">
+        <!-- Harley-Davidson X™ 440 -->
+        <div class="bike-card">
+            <img src="./images/Harley-Davidson X™ 440 DARK GREY.webp" alt="Harley-Davidson X™ 440" class="bike-image" id="bike1">
+            <h2>Harley-Davidson X™ 440</h2>
+            <p>Price: $20,000</p>
+            <div class="color-palette">
+                <div class="color-ball grey" onclick="changeColor('bike1', './images/Harley-Davidson X™ 440 DARK GREY.webp')"></div>
+                <div class="color-ball orange" onclick="changeColor('bike1', './images/Harley-Davidson X™ 440 ORANGE.webp')"></div>
+                <div class="color-ball red" onclick="changeColor('bike1', './images/Harley-Davidson X™ 440 RED.webp')"></div>
+                <div class="color-ball white" onclick="changeColor('bike1', './images/Harley-Davidson X™ 440 WHITE.webp')"></div>
+                <div class="color-ball yellow" onclick="changeColor('bike1', './images/Harley-Davidson X™ 440 YELLOW.webp')"></div>
+            </div>
+            <button class="view-button" data-id="harleydavidsonx" onclick="viewDetails('harleydavidsonx')">View</button>
+        </div>
+    
+        <!-- NIGHTSTER -->
+        <div class="bike-card">
+            <img src="./images/NIGHTSTER GREY.webp" alt="NIGHTSTER" class="bike-image" id="bike2">
+            <h2>NIGHTSTER</h2>
+            <p>Price: $25,000</p>
+            <div class="color-palette">
+                <div class="color-ball grey" onclick="changeColor('bike2', './images/NIGHTSTER GREY.webp')"></div>
+                <div class="color-ball black" onclick="changeColor('bike2', './images/NIGHTSTER SPECIAL BLACK.webp')"></div>
+                <div class="color-ball special-grey" onclick="changeColor('bike2', './images/NIGHTSTER SPECIAL GREY.webp')"></div>
+                <div class="color-ball maroon" onclick="changeColor('bike2', './images/NIGHTSTER SPECIAL MAROON.webp')"></div>
+                <div class="color-ball special-orange" onclick="changeColor('bike2', './images/NIGHTSTER SPECIAL ORANGE.webp')"></div>
+            </div>
+            <button class="view-button" data-id="nightster" onclick="viewDetails('nightster')">View</button>
+        </div>
+    
+        <!-- Pan America -->
+        <div class="bike-card">
+            <img src="./images/pan-america green.webp" alt="Pan America" class="bike-image" id="bike3">
+            <h2>Pan America</h2>
+            <p>Price: $18,999</p>
+            <div class="color-palette">
+                <div class="color-ball green" onclick="changeColor('bike3', './images/pan-america green.webp')"></div>
+                <div class="color-ball redwhite" onclick="changeColor('bike3', './images/pan-america redwhite.webp')"></div>
+            </div>
+            <button class="view-button" data-id="panamerica" onclick="viewDetails('panamerica')">View</button>
+        </div>
+
+        <!-- SPORTSTER S -->
+        <div class="bike-card">
+            <img src="./images/SPORTSTER S BLACK.webp" alt="SPORTSTER S" class="bike-image" id="bike4">
+            <h2>SPORTSTER S</h2>
+            <p>Price: $19,999</p>
+            <div class="color-palette">
+                <div class="color-ball black" onclick="changeColor('bike4', './images/SPORTSTER S BLACK.webp')"></div>
+                <div class="color-ball blue" onclick="changeColor('bike4', './images/SPORTSTER S BLUE.webp')"></div>
+                <div class="color-ball grey" onclick="changeColor('bike4', './images/SPORTSTER S GREY.webp')"></div>
+                <div class="color-ball maroon" onclick="changeColor('bike4', './images/SPORTSTER S MAROON.webp')"></div>
+            </div>
+            <button class="view-button" data-id="sportster" onclick="viewDetails('sportster')">View</button>
+        </div>
+
+        <!-- 2024 Fat Bob 114 -->
+        <div class="bike-card">
+            <img src="./images/2024-fat-bob-114 BLACK.webp" alt="2024 Fat Bob 114" class="bike-image" id="bike5">
+            <h2>2024 Fat Bob 114</h2>
+            <p>Price: $20,499</p>
+            <div class="color-palette">
+                <div class="color-ball black" onclick="changeColor('bike5', './images/2024-fat-bob-114 BLACK.webp')"></div>
+                <div class="color-ball grey" onclick="changeColor('bike5', './images/2024-fat-bob-114 GREY.webp')"></div>
+            </div>
+            <button class="view-button" data-id="fatbob" onclick="viewDetails('fatbob')">View</button>
+        </div>
+
+        <!-- 2024 Heritage Classic 114 -->
+        <div class="bike-card">
+            <img src="./images/2024-heritage-classic-114 BLACK.webp" alt="2024 Heritage Classic 114" class="bike-image" id="bike6">
+            <h2>2024 Heritage Classic 114</h2>
+            <p>Price: $21,999</p>
+            <div class="color-palette">
+                <div class="color-ball black" onclick="changeColor('bike6', './images/2024-heritage-classic-114 BLACK.webp')"></div>
+                <div class="color-ball grey" onclick="changeColor('bike6', './images/2024-heritage-classic-114 GREY.webp')"></div>
+                <div class="color-ball redblack" onclick="changeColor('bike6', './images/2024-heritage-classic-114 RED-BLACK.webp')"></div>
+                <div class="color-ball seagreen" onclick="changeColor('bike6', './images/2024-heritage-classic-114 SEA-GREEN.webp')"></div>
+            </div>
+            <button class="view-button" data-id="heritageclassic" onclick="viewDetails('heritageclassic')">View</button>
+        </div>
+
+        <!-- 2024 Street Glide -->
+        <div class="bike-card">
+            <img src="./images/2024-street-glide BLACK.webp" alt="2024 Street Glide" class="bike-image" id="bike7">
+            <h2>2024 Street Glide</h2>
+            <p>Price: $22,499</p>
+            <div class="color-palette">
+                <div class="color-ball black" onclick="changeColor('bike7', './images/2024-street-glide BLACK.webp')"></div>
+                <div class="color-ball darkblue" onclick="changeColor('bike7', './images/2024-street-glide DARK-BLUE.webp')"></div>
+                <div class="color-ball grey" onclick="changeColor('bike7', './images/2024-street-glide GREY.webp')"></div>
+                <div class="color-ball lightgrey" onclick="changeColor('bike7', './images/2024-street-glide LIGHT-GREY.webp')"></div>
+                <div class="color-ball red" onclick="changeColor('bike7', './images/2024-street-glide RED.webp')"></div>
+            </div>
+            <button class="view-button" data-id="streetglide" onclick="viewDetails('streetglide')">View</button>
+        </div>
+
+        <!-- 2023 Heritage Classic 114 -->
+        <div class="bike-card">
+            <img src="./images/2023-heritage-classic-114 BLACK.webp" alt="2023 Heritage Classic 114" class="bike-image" id="bike8">
+            <h2>2023 Heritage Classic 114</h2>
+            <p>Price: $21,499</p>
+            <div class="color-palette">
+                <div class="color-ball black" onclick="changeColor('bike8', './images/2023-heritage-classic-114 BLACK.webp')"></div>
+                <div class="color-ball darkyellow" onclick="changeColor('bike8', './images/2023-heritage-classic-114 DARK-YELLOW.webp')"></div>
+                <div class="color-ball greyblue" onclick="changeColor('bike8', './images/2023-heritage-classic-114 GREY-BLUE.webp')"></div>
+                <div class="color-ball maroon" onclick="changeColor('bike8', './images/2023-heritage-classic-114 MAROON.webp')"></div>
+            </div>
+            <button class="view-button" data-id="2023heritageclassic" onclick="viewDetails('heritageclassic2023')">View</button>
+        </div>
+    </div>
+    
+    <script src="bike_model.js"></script>
+</body>
+<!-- footer -->
+<footer>
+    <div class="section-content">
+        <div class="row">
+            <div class="col-4">
+                <a href="#" class="logo">
+                    <img src="./images/Harley_davidson_logo-removebg-preview.png" alt="">
+                </a>
+                <p class="footer-description">
+                    Harley-Davidson, founded in 1903 in Milwaukee, Wisconsin, is one of the most iconic motorcycle manufacturers in the world. Known for its V-twin engines and heavyweight cruiser bikes, Harley-Davidson played a significant role in shaping motorcycle culture, especially in the U.S. Its legacy includes innovation, strong branding, and a dedicated global fanbase of riders.
+                </p>
+                <ul class="socials">
+                    <li><a href="#"><i class="bx bxl-facebook-circle"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-youtube"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-2">
+                <ul class="footer-menu">
+                    <li><a href="#">Book a test Ride</a></li>
+                    <li><a href="#">Customer support</a></li>
+                    <li><a href="#">Motor Cycle Services</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-2">
+                <ul class="footer-menu">
+                    <li><a href="#">Showroom</a></li>
+                    <li><a href="#">faq</a></li>
+                    <li><a href="#">Term & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="col-4">
+                <h3 class="footer-header">Newsletter</h3>
+                <p class="footer-description">Dear Riders,
+                    As the crisp autumn air sets in, there's no better time to hit the open road and explore new horizons on your Harley-Davidson! This month, we’re excited to spotlight the all-new Pan America—our revolutionary adventure touring bike designed to conquer both highways and rugged trails with ease. Plus, don't miss out on our latest Fall Gear Collection, featuring premium jackets, helmets, and accessories to keep you stylish and protected on every ride.</p>
+                <div class="submit-form">
+                    <input type="text" name="" placeholder="Your Email Id...">
+                    <button class="btn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end footer -->
+</html>

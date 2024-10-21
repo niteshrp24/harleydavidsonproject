@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #151515; /* Dark background for the navbar */
+}
+
+nav {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and menu */
+    padding: 10px 20px; /* More padding for better spacing */
+}
+
+nav .logo {
+    margin-right: 90px; /* Space between logo and menu */
+}
+
+nav .logo img {
+    height: 90px; /* Increased height for the logo */
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center the menu items */
+    flex: 1; /* Allow the ul to take up remaining space */
+}
+
+nav ul li {
+    margin-right: 70px;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 24px; /* Increased font size for better visibility */
+    padding: 10px 15px; /* Added padding for better click area */
+}
+
+
+.bike-models {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 60px;
+    padding: 50px;
+}
+
+.bike-card {
+    background-color: #ffffff; /* White background for bike cards */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    text-align: center;
+    border: 2px solid #333; /* Darker border for better visibility */
+    transition: transform 0.3s;
+    min-width: 300px;
+}
+
+.bike-card:hover {
+    transform: scale(1.05);
+}
+
+.bike-card h2 {
+    margin: 10px 0;
+    font-size: 22px;
+}
+
+.bike-card p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.bike-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.color-ball {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+.color-ball:hover {
+    opacity: 0.7;
+}
+
+/* Color classes remain the same... */
+
+/* Color classes remain the same... */
+
+
+/* Specific colors for each ball */
+.grey {
+    background-color: darkgrey;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: red;
+}
+
+.white {
+    background-color: white;
+    border: 2px solid #ccc; /* Make the white ball visible */
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.black {
+    background-color: black;
+}
+
+.special-grey {
+    background-color: lightgrey;
+}
+
+.maroon {
+    background-color: maroon;
+}
+
+.special-orange {
+    background-color: orange;
+}
+
+.green {
+    background-color: green;
+}
+
+.redwhite {
+    background: linear-gradient(to right, red, white);
+}
+
+.blue {
+    background-color: blue;
+}
+
+.redblack {
+    background-color: #8B0000; /* A dark red for the red-black variant */
+}
+
+.seagreen {
+    background-color: #2E8B57; /* Sea-green color */
+}
+
+.darkblue {
+    background-color: #00008B; /* Dark blue color */
+}
+
+.lightgrey {
+    background-color: #D3D3D3; /* Light grey color */
+}
+
+.darkyellow {
+    background-color: #FFD700; /* Dark yellow */
+}
+
+.greyblue {
+    background-color: #190b78; /* Grey-blue */
+}
+
+.maroon {
+    background-color: #800000; /* Maroon */
+}
+@media (max-width: 768px) {
+    .bike-models {
+        grid-template-columns: 1fr; /* One column on smaller screens */
+    }
+}
+.bike-card h2 {
+    margin: 10px 0;
+    font-size: 22px;
+    color: black; /* Set text color to black */
+}
+
+.bike-card p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: black; /* Set text color to black */
+}
+
+
+.view-button{
+
+}
+
+.view-button {
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #ff6a00, #ee0979); /* Gradient background */
+    color: white;
+    border: none;
+    border-radius: 30px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    transition: all 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.view-button:hover {
+    background: linear-gradient(90deg, #ee0979, #ff6a00); /* Reverse gradient on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+}

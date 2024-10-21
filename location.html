@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nearby Harley-Davidson Shops</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+            scroll-behavior: smooth;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        /* .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            color: #f9a825;
+            font-size: 32px;
+            font-weight: bold;
+            position: relative;
+        }
+        .header i {
+            margin-right: 10px;
+        } */
+        .main {
+            display: flex;
+            flex-grow: 1;
+        }
+        .sidebar {
+            width: 300px;
+            background-color: #2b2b2b;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        }
+        .sidebar h2 {
+            color: #f9a825;
+            margin-bottom: 20px;
+        }
+        .sidebar h2 i {
+            margin-right: 10px;
+        }
+        .shop {
+            margin-bottom: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .shop:hover {
+            background-color: #444;
+        }
+        .shop h3 {
+            margin: 0;
+            color: #f9a825;
+        }
+        .shop h3 i {
+            margin-right: 10px;
+        }
+        .shop p {
+            margin: 5px 0;
+            color: #bbb;
+        }
+        #map {
+            flex-grow: 1;
+            height: 70%; /* Increased height for better visibility */
+            margin-left: 20px;
+            margin-top: 20px; /* Move the map down */
+        }
+        iframe {
+            width: 100%; /* Ensure it fills the container */
+            height: 100%;
+            border: 0;
+        }
+        .feedback-section {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+        .feedback-section h3 {
+            margin: 0;
+            color: #f9a825;
+        }
+        .feedback-section h3 i {
+            margin-right: 10px;
+        }
+        .feedback {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .feedback img {
+            width: 50px; /* Equal sizes for all feedback images */
+            height: 50px;
+            border-radius: 50%; /* Make images circular */
+            margin-right: 10px;
+        }
+        .rating {
+            margin-bottom: 10px;
+            color: #f9a825;
+        }
+        .rating span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #f9a825;
+            border-radius: 3px;
+            margin-right: 2px;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            background-color: #444;
+            color: #fff;
+            border: 1px solid #f9a825;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        select:focus {
+            outline: none;
+            border-color: #f9a825;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #000;
+            color: #f9a825;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f9a825;
+            color: #000;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none; /* Hidden by default */
+        }
+        .back-to-top i {
+            font-size: 20px;
+        }
+
+
+
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        nav .logo {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            height: 50px; /* Adjust as needed */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Heading -->
+    <!-- <div class="header">
+        <i class="fas fa-motorcycle"></i>Find Your Nearest Harley-Davidson Shop
+    </div> --->
+    <nav> 
+      <a href="#" class="logo">
+          <img src="./images/Harley_davidson_logo-removebg-preview.png" alt="Harley Davidson Logo" style="height: 100px;">
+      </a>
+      <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Book Online</a></li>
+          <li><a href="#">Model</a></li>
+          <li><a href="#">Review</a></li>
+          <li><a href="#">Contact Us</a></li>
+      </ul>
+  </nav>
+
+    <div class="container">
+        <div class="main">
+            <div class="sidebar">
+                <h2><i class="fas fa-map-marker-alt"></i>Harley-Davidson Shops</h2>
+                <div class="dropdown">
+                    <select id="citySelector" onchange="updateShops()">
+                        <option value="">Select a City</option>
+                        <option value="New York">New York</option>
+                        <option value="Chicago">Chicago</option>
+                        <option value="San Francisco">San Francisco</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Miami">Miami</option>
+                        <option value="Dallas">Dallas</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="Denver">Denver</option>
+                    </select>
+                </div>
+                <div id="shopList"></div>
+            </div>
+
+            <div id="map">
+                <iframe
+                    id="mapFrame"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345092875!2d-74.00708578468144!3d40.71277527933016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a3194e51ec9%3A0x55f917f1715a37b4!2sHarley-Davidson%20of%20NYC!5e0!3m2!1sen!2sus!4v1632181725463!5m2!1sen!2sus"
+                    allowfullscreen=""
+                    loading="lazy"
+                ></iframe>
+                <div class="feedback-section">
+                    <h3><i class="fas fa-comments"></i>Feedbacks</h3>
+                    <div class="rating" id="rating"></div>
+                    <div id="feedbacks"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+
+    <script>
+          const shops = {
+            
+    "New York": {
+      "name": "Harley-Davidson of NYC",
+      "address": "376 Broadway, New York, NY 10013",
+      "lat": 40.7182,
+      "lng": -74.0059,
+      "feedbacks": [
+        {
+          "text": "Great service and very friendly staff!",
+          "rating": 5,
+          "img": "https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg"
+        },
+        {
+          "text": "Fantastic bikes and a seamless buying experience!",
+          "rating": 4,
+          "img": "https://www.profilebakery.com/wp-content/uploads/2024/05/Profile-picture-created-with-ai.jpeg"
+        },
+        {
+          "text": "Loved the test ride!",
+          "rating": 4,
+          "img": "https://www.profilebakery.com/wp-content/uploads/2023/04/AI-Profile-Picture.jpg"
+        }
+      ]
+    },
+    "Chicago": {
+      "name": "Harley-Davidson of Chicago",
+      "address": "401 N Michigan Ave, Chicago, IL 60611",
+      "lat": 41.8885,
+      "lng": -87.6243,
+      "feedbacks": [
+        {
+          "text": "Best place to get Harley bikes!",
+          "rating": 5,
+          "img": "https://www.profilebakery.com/wp-content/uploads/2023/04/Profile-Image-AI.jpg"
+        },
+        {
+          "text": "Great selection and awesome staff.",
+          "rating": 4,
+          "img": "https://www.profilebakery.com/wp-content/uploads/2023/04/LINKEDIN-Profile-Picture-AI.jpg"
+        },
+        {
+          "text": "A bit pricey but worth it!",
+          "rating": 3,
+          "img": "https://cdn.prod.website-files.com/633c5a6e91dfc774edc0f59f/65280f6399c8846b5362ed45_marko-headshot.jpeg"
+        }
+      ]
+    },
+    "San Francisco": {
+      "name": "Harley-Davidson of San Francisco",
+      "address": "123 4th St, San Francisco, CA 94103",
+      "lat": 37.7817,
+      "lng": -122.4070,
+      "feedbacks": [
+        {
+          "text": "Amazing bikes, I had a great experience!",
+          "rating": 4,
+          "img": "https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg"
+        },
+        {
+          "text": "Good place, but parking is an issue.",
+          "rating": 3,
+          "img": "https://img.freepik.com/premium-photo/portrait-handsome-young-man-looking-camera-isolated-white-created-with-generative-ai_762026-14291.jpg"
+        },
+        {
+          "text": "Love the atmosphere here!",
+          "rating": 5,
+          "img": "https://imgcdn.stablediffusionweb.com/2024/5/23/b7cf2316-f69c-4044-a43f-7a805d912139.jpg "
+        }
+      ]
+    },
+    "Los Angeles": {
+      "name": "Harley-Davidson of Los Angeles",
+      "address": "123 Sunset Blvd, Los Angeles, CA 90046",
+      "lat": 34.0953,
+      "lng": -118.3287,
+      "feedbacks": [
+        {
+          "text": "Awesome bike collection and helpful staff!",
+          "rating": 5,
+          "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6TotkE4r0Fj0fiXeNyDpQrMahE4mLt-okJuws7jGd0Sji2qlAd3gnKBt-JJMDtJ9326g&usqp=CAU"
+        },
+        {
+          "text": "Had some issues with accessories.",
+          "rating": 3,
+          "img": "https://img.freepik.com/premium-photo/cyberpunk-woman-portrait-futuristic-neon-style_620650-1240.jpg"
+        },
+        {
+          "text": "The best place to experience Harley!",
+          "rating": 4,
+          "img": "https://img.freepik.com/premium-photo/beautiful-girl-as-virtual-assistant-futuristic-background_935190-396.jpg"
+        }
+      ]
+    },
+    "Miami": {
+      "name": "Harley-Davidson of Miami",
+      "address": "456 Ocean Dr, Miami, FL 33139",
+      "lat": 25.7867,
+      "lng": -80.1300,
+      "feedbacks": [
+        {
+          "text": "Great store and amazing variety!",
+          "rating": 4,
+          "img": "https://via.placeholder.com/50"
+        },
+        {
+          "text": "Very helpful staff, had a great time.",
+          "rating": 5,
+          "img": "https://www.profilebakery.com/wp-content/uploads/2023/04/Profile-Image-AI.jp"
+        },
+        {
+          "text": "A must-visit for all Harley lovers.",
+          "rating": 5,
+          "img": "https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg0"
+        }
+      ]
+    },
+    "Dallas": {
+      "name": "Harley-Davidson of Dallas",
+      "address": "789 Main St, Dallas, TX 75201",
+      "lat": 32.7791,
+      "lng": -96.8003,
+      "feedbacks": [
+        {
+          "text": "Staff were not very attentive.",
+          "rating": 3,
+          "img": "https://www.profilebakery.com/wp-content/uploads/2023/04/Profile-Image-AI.jp"
+        },
+        {
+          "text": "Amazing experience, bought my first Harley!",
+          "rating": 5,
+          "img": "https://img.freepik.com/premium-photo/cyberpunk-woman-portrait-futuristic-neon-style_620650-1240.jpg"
+        },
+        {
+          "text": "Good variety but prices are high.",
+          "rating": 3,
+          "img": "https://www.profilebakery.com/wp-content/uploads/2023/04/AI-Profile-Picture.jpg"
+        }
+      ]
+    },
+    "Seattle": {
+      "name": "Harley-Davidson of Seattle",
+      "address": "567 Pike St, Seattle, WA 98101",
+      "lat": 47.6101,
+      "lng": -122.3344,
+      "feedbacks": [
+        {
+          "text": "Great selection and a fantastic location.",
+          "rating": 5,
+          "img": "https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg"
+        },
+        {
+          "text": "Friendly staff but the prices are high.",
+          "rating": 4,
+          "img": "https://www.profilebakery.com/wp-content/uploads/2023/04/Profile-Image-AI.jp"
+        },
+        {
+          "text": "Loved the test rides they offer.",
+          "rating": 5,
+          "img": "https://www.profilebakery.com/wp-content/uploads/2023/04/AI-Profile-Picture.jpg"
+        }
+      ]
+    },
+    "Denver": {
+      "name": "Harley-Davidson of Denver",
+      "address": "321 Speer Blvd, Denver, CO 80203",
+      "lat": 39.7217,
+      "lng": -104.9981,
+      "feedbacks": [
+        {
+          "text": "Awesome bikes but slow service.",
+          "rating": 3,
+          "img": "https://img.freepik.com/premium-photo/cyberpunk-woman-portrait-futuristic-neon-style_620650-1240.jpg"
+        },
+        {
+          "text": "Had a good experience here, would recommend!",
+          "rating": 4,
+          "img": "https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg"
+        },
+        {
+          "text": "Staff was super friendly and helpful.",
+          "rating": 5,
+          "img": "https://www.profilebakery.com/wp-content/uploads/2023/04/Profile-Image-AI.jp"
+        }
+      ]
+    }
+  
+
+        };
+
+       function updateShops() {
+    const citySelector = document.getElementById('citySelector');
+    const shopList = document.getElementById('shopList');
+    const selectedCity = citySelector.value;
+
+    shopList.innerHTML = ''; // Clear previous shop list
+
+    if (selectedCity && shops[selectedCity]) {
+        const shop = shops[selectedCity];
+        const shopDiv = document.createElement('div');
+        shopDiv.classList.add('shop');
+        shopDiv.onclick = function() {
+            updateMap(shop.lat, shop.lng, shop.name, shop.address);
+            showFeedbacks(shop.feedbacks);
+        };
+        shopDiv.innerHTML = `<h3><i class="fas fa-store"></i> ${shop.name}</h3><p>${shop.address}</p>`;
+        shopList.appendChild(shopDiv);
+    }
+}
+
+function updateMap(lat, lng, shopName, address) {
+    const mapFrame = document.getElementById('mapFrame');
+    const zoomLevel = 14; // Set zoom level for better visibility
+    const marker = `&markers=color:red%7C${lat},${lng}`; // Red bullet marker
+
+    const src = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345092875!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a3194e51ec9%3A0x55f917f1715a37b4!2s${encodeURIComponent(shopName)}!5e0!3m2!1sen!2sus!4v1632181725463!5m2!1sen!2sus${marker}&z=${zoomLevel}`;
+
+    mapFrame.src = src;
+}
+
+function showFeedbacks(feedbacks) {
+    const feedbacksDiv = document.getElementById('feedbacks');
+    const ratingDiv = document.getElementById('rating');
+    feedbacksDiv.innerHTML = ''; // Clear previous feedbacks
+    ratingDiv.innerHTML = ''; // Clear previous ratings
+
+    feedbacks.forEach(feedback => {
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.classList.add('feedback');
+        feedbackDiv.innerHTML = `
+            <div class="feedback-item">
+                <img src="${feedback.img}" alt="User feedback" />
+                <p>${feedback.text}</p>
+            </div>
+        `;
+        feedbacksDiv.appendChild(feedbackDiv);
+    });
+
+    const averageRating = feedbacks.reduce((acc, curr) => acc + curr.rating, 0) / feedbacks.length;
+    for (let i = 0; i < 5; i++) {
+        const star = document.createElement('span');
+        star.textContent = '★';
+        star.style.color = i < averageRating ? '#f9a825' : '#444';
+        ratingDiv.appendChild(star);
+    }
+}
+
+        window.onscroll = function() {
+            const backToTopButton = document.getElementById('backToTop');
+            if (document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = 'block'; // Show button when scrolling down
+            } else {
+                backToTopButton.style.display = 'none'; // Hide button when at the top
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

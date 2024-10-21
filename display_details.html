@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Details</title>
+    <link rel="stylesheet" href="details.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text */
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #1f1f1f; /* Darker navigation */
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        nav .logo {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff; /* White text for links */
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            padding-left: 100px;
+        }
+
+        .details {
+            flex: 1;
+            padding: 20px;
+            background-color: #1e1e1e; /* Dark card background */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            margin-right: 20px;
+            transition: transform 0.3s;
+        }
+
+        .details:hover {
+            transform: scale(1.02);
+        }
+
+        .details h3 {
+            border-bottom: 2px solid #ffffff; /* White underline for headings */
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: #ffffff; /* White text for headings */
+        }
+
+        .bike-image {
+            width: 600px;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            margin: 5px 0;
+            padding: 8px;
+            background-color: #292929; /* Darker background for features */
+            border-radius: 4px;
+            border: 1px solid #444; /* Darker border */
+            color: #ffffff; /* White text for features */
+        }
+
+        .image-container {
+            height: 550px;
+            padding-right: 50px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .controls {
+            margin: 20px 0;
+        }
+
+        .button {
+            padding: 10px 15px;
+            background-color: #333; /* Dark button background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        .button:hover {
+            background-color: #555; /* Slightly lighter on hover */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="./images/Harley_davidson_logo-removebg-preview.png" alt="Logo" class="logo">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="testride.html">Book Online</a></li>
+            <li><a href="bike_model.html">Model</a></li>
+            <li><a href="review.html">Review</a></li>
+            <li><a href="location.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <h1 id="bike-name" style="text-align:center;">Harley-Davidson X™ 440</h1>
+
+    <div class="container">
+        <div class="details">
+            <p id="bike-price"><strong>Price:</strong> $20,000</p>
+            <p id="bike-info">The Harley-Davidson X™ 440 combines modern technology with classic design. Experience unparalleled comfort and performance.</p>
+            <h3>Features:</h3>
+            <ul class="features">
+                <li>Engine: 440cc V-Twin</li>
+                <li>Power: 30 hp</li>
+                <li>Torque: 35 Nm</li>
+                <li>Fuel Capacity: 13.5 L</li>
+                <li>Weight: 210 kg</li>
+                <li>ABS: Yes</li>
+            </ul>
+        </div>
+
+        <div class="image-container">
+            <img id="bike-image" src="" alt="Bike 360 View" class="bike-image">
+            <div class="controls">
+                <button class="button" onclick="prevImage()">Previous</button>
+                <button class="button" onclick="nextImage()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for 360-degree image view and fetching bike details
+        const bikeImage = document.getElementById('bike-image');
+        let images = [];
+        let currentImage = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get bike ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const bikeId = urlParams.get('id');
+
+            fetch('details.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Find the bike details by ID
+                    const bikeDetails = data.bikes.find(bike => bike.id === bikeId);
+
+                    if (bikeDetails) {
+                        // Update the HTML with bike details
+                        document.getElementById('bike-name').textContent = bikeDetails.name;
+                        document.getElementById('bike-price').textContent = `Price: ${bikeDetails.price}`;
+                        document.getElementById('bike-info').textContent = bikeDetails.info;
+
+                        // Clear existing features
+                        const featuresList = document.querySelector('.features');
+                        featuresList.innerHTML = ''; // Clear previous features
+
+                        // Add features to the list
+                        Object.entries(bikeDetails.features).forEach(([key, value]) => {
+                            const li = document.createElement('li');
+                            li.textContent = `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`;
+                            featuresList.appendChild(li);
+                        });
+
+                        // Set images for the 360 view
+                        images = bikeDetails.images["360"];
+                        updateImage(); // Show the first image
+                    } else {
+                        console.error('Bike details not found');
+                    }
+                })
+                .catch(error => console.error('Error fetching bike details:', error));
+        });
+
+        function updateImage() {
+            bikeImage.src = images[currentImage];
+        }
+
+        function nextImage() {
+            currentImage = (currentImage + 1) % images.length;
+            updateImage();
+        }
+
+        function prevImage() {
+            currentImage = (currentImage - 1 + images.length) % images.length;
+            updateImage();
+        }
+    </script>
+</body>
+</html>
